@@ -1,14 +1,13 @@
 #!/bin/sh
 #
-# exim          This shell script takes care of starting and stopping
-#               Exim.
+# exim		This shell script takes care of starting and stopping Exim.
 #
-# chkconfig: 2345 80 30
-# description: Exim is a Mail Transport Agent, which is the program \
-#              that moves mail from one machine to another.
-# processname: exim
-# config: /etc/exim.cf
-# pidfile: /var/run/exim.pid
+# chkconfig:	2345 80 30
+# description:	Exim is a Mail Transport Agent, which is the program \
+#		that moves mail from one machine to another.
+# processname:	exim
+# config:	/etc/exim.cf
+# pidfile:	/var/run/exim.pid
 
 # Source function library.
 . /etc/rc.d/init.d/functions
@@ -16,7 +15,7 @@
 # Source networking configuration.
 . /etc/sysconfig/network
 
-# Source sendmail configureation.
+# Source exim configureation.
 if [ -f /etc/sysconfig/exim ] ; then
 	. /etc/sysconfig/exim
 else
@@ -25,7 +24,10 @@ else
 fi
 
 # Check that networking is up.
-[ "${NETWORKING}" = "no" ] && exit 0
+if is_no "${NETWORKING}"; then
+	msg_Network_Down Exim
+	exit 1
+fi
 
 [ -x /usr/bin/exim ] || exit 0
 
@@ -33,14 +35,14 @@ fi
 case "$1" in
   start)
 	# Start daemons.
-	show "Starting exim: "
+	msg_starting exim
 	daemon /usr/bin/exim $([ "$DAEMON" = "yes" ] && echo -bd) \
                                   $([ -n "$QUEUE" ] && echo -q$QUEUE)
 	touch /var/lock/subsys/exim
 	;;
   stop)
 	# Stop daemons.
-	show "Shutting down exim: "
+	msg_stopping exim
 	killproc exim
 	rm -f /var/lock/subsys/exim
 	;;
@@ -52,7 +54,7 @@ case "$1" in
 	status exim
 	;;
   *)
-	echo "Usage: $0 {start|stop|restart|status}"
+	msg_Usage "$0 {start|stop|restart|status}"
 	exit 1
 esac
 
