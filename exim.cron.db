@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /
-/usr/bin/exim_tidydb -t /var/spool/exim retry
-/usr/bin/exim_tidydb -f /var/spool/exim retry
-/usr/bin/exim_tidydb -t /var/spool/exim wait-smtp
-/usr/bin/exim_tidydb -f /var/spool/exim wait-smtp
+/usr/bin/exim_tidydb -t 28 /var/spool/exim retry
+/usr/bin/exim_tidydb -f    /var/spool/exim retry
+/usr/bin/exim_tidydb -t 28 /var/spool/exim wait-smtp
+/usr/bin/exim_tidydb -f    /var/spool/exim wait-smtp
