@@ -1,0 +1,5 @@
+# yes|no
+DAEMON=yes
+
+# queue time
+QUEUE=1h
