@@ -2,7 +2,7 @@
     olddir /var/log/archiv/exim
     create 640 exim exim
     postrotate
-	/usr/bin/killall -HUP exim
+	/bin/killall -HUP exim
     endscript
 }
 
@@ -10,20 +10,20 @@
     olddir /var/log/archiv/exim
     create 640 exim exim
     postrotate
-	/usr/bin/killall -HUP exim
+	/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/panic.log {
     olddir /var/log/archiv/exim
     create 640 exim exim
     postrotate
-	/usr/bin/killall -HUP exim
+	/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/process.log {
     olddir /var/log/archiv/exim
     create 640 exim exim
     postrotate
-	/usr/bin/killall -HUP exim
+	/bin/killall -HUP exim
     endscript
 }
