@@ -42,6 +42,13 @@ case "$1" in
 		daemon exim \
 			$( is_yes "$ALLOW_TCP_CONNECTIONS" && echo -bd ) \
 			$( [ -n "$QUEUE" ] && echo -q$QUEUE )
+		for CONFIG in $EXIM_EXTRA_CONFIGS; do
+				msg_starting "Exim ($CONFIG)"
+				daemon exim \
+					$( is_yes "$ALLOW_TCP_CONNECTIONS" && echo -bd ) \
+					$( [ -n "$QUEUE" ] && echo -q$QUEUE ) \
+					-C $CONFIG
+		done
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/exim
 	else

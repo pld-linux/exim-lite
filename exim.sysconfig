@@ -6,5 +6,8 @@ SERVICE_RUN_NICE_LEVEL="+5"
 # if exim should listen on an SMTP port for incoming messages
 ALLOW_TCP_CONNECTIONS=yes
 
+# Start more instances?
+#EXIM_EXTRA_CONFIGS="/etc/mail/exim.client.conf"
+
 # queue time
 QUEUE=15m
