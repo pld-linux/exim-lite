@@ -183,15 +183,6 @@
  
  
  #------------------------------------------------------------------------------
-@@ -917,7 +919,7 @@
- # (process id) to a file so that it can easily be identified. The path of the
- # file can be specified here. Some installations may want something like this:
- 
--# PID_FILE_PATH=/var/lock/exim.pid
-+PID_FILE_PATH=/var/run/exim%s.pid
- 
- # If PID_FILE_PATH is not defined, Exim writes a file in its spool directory
- # using the name "exim-daemon.pid".
 @@ -940,7 +942,7 @@
  # be changed here. The default is 0640 so that information from the spool is
  # available to anyone who is a member of the Exim group.
