@@ -3,39 +3,42 @@
 # exim          This shell script takes care of starting and stopping
 #               Exim.
 #
-# chkconfig: 2345 80 30
-# description: Exim is a Mail Transport Agent, which is the program \
-#              that moves mail from one machine to another.
-# processname: exim
-# config: /etc/exim.cf
-# pidfile: /var/run/exim.pid
+# chkconfig:	2345 80 30
+#
+# description:	Exim is a Mail Transport Agent, which is the program \
+#		that moves mail from one machine to another.
+#
+# processname:	exim
+# config:	/etc/exim.cf
+# pidfile:	/var/run/exim.pid
 
-# Source function library.
+
+# Source function library
 . /etc/rc.d/init.d/functions
 
-# Source networking configuration.
+# Get network config
 . /etc/sysconfig/network
 
-# Source sendmail configureation.
-if [ -f /etc/sysconfig/exim ] ; then
-	. /etc/sysconfig/exim
+# Get service config
+if [ -f /etc/sysconfig/hc-cron ]; then
+	. /etc/sysconfig/hc-cron
 else
 	DAEMON=yes
 	QUEUE=1h
 fi
 
-# Check that networking is up.
-[ "${NETWORKING}" = "no" ] && exit 0
-
-[ -f /usr/bin/exim ] || exit 0
 
 # See how we were called.
 case "$1" in
   start)
-	# Start daemons.
-	show Starting exim:
-	daemon +5 exim $([ "$DAEMON" = yes ] && echo -bd) \
-                                  $([ -n "$QUEUE" ] && echo -q$QUEUE)
+	# Check if the service is already running?
+	if [ ! -f /var/lock/subsys/exim ]; then
+		show Starting exim
+		daemon exim $([ "$DAEMON" = yes ] && echo -bd) \
+			$([ -n "$QUEUE" ] && echo -q$QUEUE)
+	else
+		echo "Exim already is running"
+	fi
 	touch /var/lock/subsys/exim
 	;;
   stop)
@@ -44,7 +47,7 @@ case "$1" in
 	killproc exim
 	rm -f /var/lock/subsys/exim
 	;;
-  restart)
+  restart|reload)
 	$0 stop
 	$0 start
 	;;
@@ -52,7 +55,7 @@ case "$1" in
 	status exim
 	;;
   *)
-	echo "Usage: $0 {start|stop|restart|status}"
+	echo "Usage: $0 {start|stop|staus|restart|reload}"
 	exit 1
 esac
 
