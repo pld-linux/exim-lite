@@ -1,6 +1,6 @@
-diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
---- exim-4.12.orig/src/EDITME	Wed Dec 18 11:28:00 2002
-+++ exim-4.12/src/EDITME	Mon Dec 23 03:50:04 2002
+diff -urN exim-4.21.org/src/EDITME exim-4.21/src/EDITME
+--- exim-4.21.org/src/EDITME	2003-08-15 00:28:45.000000000 +0200
++++ exim-4.21/src/EDITME	2003-08-15 00:37:15.000000000 +0200
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -10,16 +10,16 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -113,7 +113,7 @@
- # directories if they don't exist. It will also install a default runtime
- # configuration if this file does not exist.
+@@ -114,7 +114,7 @@
+ # don't exist. It will also install a default runtime configuration if this
+ # file does not exist.
  
 -CONFIGURE_FILE=/usr/exim/configure
 +CONFIGURE_FILE=/etc/mail/exim.conf
  
  # It is possible to specify a colon-separated list of files for CONFIGURE_FILE.
  # In this case, Exim will use the first of them that exists when it is run.
-@@ -131,7 +131,8 @@
+@@ -132,7 +132,8 @@
  # owner of a local mailbox.) Specifying these values as root is very strongly
  # discouraged. These values are compiled into the binary.
  
@@ -29,7 +29,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  # If the setting of EXIM_USER is numeric (e.g. EXIM_USER=42), there must
  # also be a setting of EXIM_GROUP. If, on the other hand, you use a name
-@@ -212,7 +213,7 @@
+@@ -213,7 +214,7 @@
  # This one is special-purpose, and commonly not required, so it is not
  # included by default.
  
@@ -38,7 +38,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -221,9 +222,9 @@
+@@ -222,9 +223,9 @@
  # MBX, is included only when requested. If you do not know what this is about,
  # leave these settings commented out.
  
@@ -51,27 +51,32 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -238,7 +239,7 @@
+@@ -239,9 +240,9 @@
  LOOKUP_DBM=yes
  LOOKUP_LSEARCH=yes
  
 -# LOOKUP_CDB=yes
 +LOOKUP_CDB=yes
  # LOOKUP_DNSDB=yes
- # LOOKUP_DSEARCH=yes
+-# LOOKUP_DSEARCH=yes
++LOOKUP_DSEARCH=yes
  # LOOKUP_LDAP=yes
-@@ -309,8 +310,8 @@
+ # LOOKUP_MYSQL=yes
+ # LOOKUP_NIS=yes
+@@ -310,9 +311,9 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
  
 -# AUTH_CRAM_MD5=yes
 -# AUTH_PLAINTEXT=yes
+-# AUTH_SPA=yes
 +AUTH_CRAM_MD5=yes
 +AUTH_PLAINTEXT=yes
- # AUTH_SPA=yes
++AUTH_SPA=yes
  
  
-@@ -323,10 +324,10 @@
+ #------------------------------------------------------------------------------
+@@ -365,10 +366,10 @@
  # leave these settings commented out.
  
  # This setting is required for any TLS support (either OpenSSL or GnuTLS)
@@ -84,7 +89,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  # Uncomment these settings if you are using GnuTLS
  # USE_GNUTLS=yes
-@@ -377,7 +378,7 @@
+@@ -419,7 +420,7 @@
  # Once you have done this, "make install" will build the info files and
  # install them in the directory you have defined.
  
@@ -93,7 +98,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -390,7 +391,7 @@
+@@ -432,7 +433,7 @@
  # %s. This will be replaced by one of the strings "main", "panic", or "reject"
  # to form the final file names. Some installations may want something like this:
  
@@ -102,7 +107,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  # which results in files with names /var/log/exim_mainlog, etc. The directory
  # in which the log files are placed must exist; Exim does not try to create
-@@ -424,7 +425,7 @@
+@@ -481,7 +482,7 @@
  # files. Both the name of the command and the suffix that it adds to files
  # need to be defined here. See also the EXICYCLOG_MAX configuration.
  
@@ -111,7 +116,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  COMPRESS_SUFFIX=gz
  
  
-@@ -432,7 +433,7 @@
+@@ -489,7 +490,7 @@
  # If the exigrep utility is fed compressed log files, it tries to uncompress
  # them using this command.
  
@@ -120,7 +125,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -441,7 +442,7 @@
+@@ -498,7 +499,7 @@
  # (version 5.004 or later) installed, set EXIM_PERL to perl.o. Using embedded
  # Perl costs quite a lot of resources. Only do this if you really need it.
  
@@ -129,7 +134,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -451,11 +452,12 @@
+@@ -508,11 +509,12 @@
  # support, which is intended for use in conjunction with the SMTP AUTH
  # facilities, is included only when requested by the following setting:
  
@@ -143,16 +148,25 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  #------------------------------------------------------------------------------
  # Support for authentication via Radius is also available. The Exim support,
-@@ -478,7 +480,7 @@
- # and chown it to exim's user and group. Once you have installed pwcheck, you
- # should arrange for it to be started by root at boot time.
+@@ -537,7 +539,7 @@
+ # /var/pwcheck) and chown it to exim's user and group. Once you have installed
+ # pwcheck, you should arrange for it to be started by root at boot time.
  
 -# CYRUS_PWCHECK_SOCKET=/var/pwcheck/pwcheck
 +CYRUS_PWCHECK_SOCKET=/var/lib/sasl/mux
  
  
  #------------------------------------------------------------------------------
-@@ -577,7 +579,7 @@
+@@ -554,7 +556,7 @@
+ # group. Once you have installed saslauthd, you should arrange for it to be
+ # started by root at boot time.
+ 
+-# CYRUS_SASLAUTHD_SOCKET=/var/state/saslauthd/mux
++CYRUS_SASLAUTHD_SOCKET=/var/lib/sasl2/mux
+ 
+ 
+ #------------------------------------------------------------------------------
+@@ -666,7 +668,7 @@
  # period (for example, /usr/exim/configure.host.in.some.domain). If this file
  # does not exist, then the bare configuration file name is tried.
  
@@ -161,7 +175,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -726,7 +728,7 @@
+@@ -816,7 +818,7 @@
  # (process id) to a file so that it can easily be identified. The path of the
  # file can be specified here. Some installations may want something like this:
  
@@ -170,7 +184,7 @@ diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
  
  # If PID_FILE_PATH is not defined, Exim writes a file in its spool directory
  # using the name "exim-daemon.pid".
-@@ -749,7 +751,7 @@
+@@ -839,7 +841,7 @@
  # be changed here. The default is 0640 so that information from the spool is
  # available to anyone who is a member of the Exim group.
  
