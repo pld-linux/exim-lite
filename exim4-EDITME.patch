@@ -1,5 +1,6 @@
---- exim-4.11/src/EDITME.orig	Mon Dec  9 11:42:50 2002
-+++ exim-4.11/src/EDITME	Wed Dec 11 15:02:06 2002
+diff -urP exim-4.12.orig/src/EDITME exim-4.12/src/EDITME
+--- exim-4.12.orig/src/EDITME	Wed Dec 18 11:28:00 2002
++++ exim-4.12/src/EDITME	Mon Dec 23 03:50:04 2002
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -142,6 +143,15 @@
  
  #------------------------------------------------------------------------------
  # Support for authentication via Radius is also available. The Exim support,
+@@ -478,7 +480,7 @@
+ # and chown it to exim's user and group. Once you have installed pwcheck, you
+ # should arrange for it to be started by root at boot time.
+ 
+-# CYRUS_PWCHECK_SOCKET=/var/pwcheck/pwcheck
++CYRUS_PWCHECK_SOCKET=/var/lib/sasl/mux
+ 
+ 
+ #------------------------------------------------------------------------------
 @@ -577,7 +579,7 @@
  # period (for example, /usr/exim/configure.host.in.some.domain). If this file
  # does not exist, then the bare configuration file name is tried.
