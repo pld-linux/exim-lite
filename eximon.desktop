@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Exim Monitor
+Comment=Exim Monitor
+Comment[pl]=Monitor Exima
+Exec=eximon
+Terminal=0
+Type=Application
