@@ -1,5 +1,5 @@
---- exim-4.00/src/EDITME.orig	Mon Feb 25 11:47:05 2002
-+++ exim-4.00/src/EDITME	Sat Mar  2 23:45:23 2002
+--- exim-4.01/src/EDITME.org	Mon Mar  4 11:03:40 2002
++++ exim-4.01/src/EDITME	Thu Mar  7 11:54:10 2002
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -14,7 +14,7 @@
  # configuration if this file does not exist.
  
 -CONFIGURE_FILE=/usr/exim/configure
-+CONFIGURE_FILE=/usr/exim/exim.conf
++CONFIGURE_FILE=/etc/mail/exim.conf
  
  
  #------------------------------------------------------------------------------
@@ -127,7 +127,7 @@
  # You probably need to add -lpam to EXTRALIBS, and in some releases of
  # GNU/Linux -ldl is also needed.
  
-++EXTRALIBS=-lpam -ldl
++EXTRALIBS=-lpam -ldl
  
  #------------------------------------------------------------------------------
  # Support for authentication via Radius is also available. The Exim support,
