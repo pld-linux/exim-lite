@@ -7,5 +7,5 @@ Exec=eximon
 Icon=eximon
 Terminal=false
 Type=Application
-Categories=System
+Categories=System;
 # vi: encoding=utf-8
