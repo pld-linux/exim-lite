@@ -1,0 +1,41 @@
+diff -urN exiscan-4.10-16/exiscan-4.10-16.patch.org exiscan-4.10-16/exiscan-4.10-16.patch
+--- exiscan-4.10-16/exiscan-4.10-16.patch.org	Fri Oct  4 14:19:29 2002
++++ exiscan-4.10-16/exiscan-4.10-16.patch	Fri Oct 18 23:15:29 2002
+@@ -17,15 +17,15 @@
+ -        local_scan.o $(EXIM_PERL)
+ +        local_scan.o exiscan.o $(EXIM_PERL)
+  
+--exim:   pcre/libpcre.a lookups/lookups.a auths/auths.a \
+-+exim:   pcre/libpcre.a mime/ripmime.a lookups/lookups.a auths/auths.a \
++-exim:   lookups/lookups.a auths/auths.a \
+++exim:   mime/ripmime.a lookups/lookups.a auths/auths.a \
+          routers/routers.a transports/transports.a \
+          $(OBJ_EXIM) version.c
+  	@echo " "
+ @@ -256,7 +256,7 @@
+  	rm -f exim
+  	$(PURIFY) $(LNCC) -o exim $(LFLAGS) $(OBJ_EXIM) version.o \
+- 	  pcre/libpcre.a \
++ 	  -lpcre \
+ -	  routers/routers.a transports/transports.a lookups/lookups.a \
+ +	  routers/routers.a mime/ripmime.a transports/transports.a lookups/lookups.a \
+  	  auths/auths.a \
+diff -Nur doc.org/exiscan-mks.txt doc/exiscan-mks.txt
+--- doc.org/exiscan-mks.txt     Thu Jan  1 01:00:00 1970
++++ doc/exiscan-mks.txt Sat Oct 19 22:50:38 2002
+@@ -0,0 +1,15 @@
++#exiscan
++exiscan_condition = 1
++exiscan_crypt_salt = pq
++exiscan_timeout = 5m
++exiscan_unpack_mime = true
++
++#Antivirus facility (AV) options:
++
++exiscan_av_condition = 1
++exiscan_av_action = redirect virus@localhost
++exiscan_av_scanner = cmdline
++exiscan_av_scanner_path = /usr/local/bin/mks32
++exiscan_av_scanner_options = -s |/*
++exiscan_av_scanner_regexp_description = --virus (.*)
++exiscan_av_scanner_regexp_trigger = status: virus found:
