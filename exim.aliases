@@ -27,6 +27,8 @@ nobody:		root
 system:		root
 toor:		root
 uucp:		root
+http:		root
+exim:		root
 
 # Well-known aliases.
 manager:	root
