@@ -1,20 +1,24 @@
 /var/log/exim/main.log {
+    create 640 exim exim
     postrotate
 	/usr/bin/killall -HUP exim
     endscript
 }
 
 /var/log/exim/reject.log {
+    create 640 exim exim
     postrotate
 	/usr/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/panic.log {
+    create 640 exim exim
     postrotate
 	/usr/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/process.log {
+    create 640 exim exim
     postrotate
 	/usr/bin/killall -HUP exim
     endscript
