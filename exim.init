@@ -16,7 +16,7 @@
 . /etc/sysconfig/network
 
 # Source exim configureation.
-if [ -f /etc/sysconfig/exim ] ; then
+if [ -f /etc/sysconfig/exim ]; then
 	. /etc/sysconfig/exim
 else
 	QUEUE=1h
