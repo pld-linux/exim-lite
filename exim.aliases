@@ -17,7 +17,6 @@ webmaster:	hostmaster
 ftpmaster:	hostmaster
 admin:		hostmaster
 administrator:	hostmaster
-abuse:		hostmaster
 
 # General redirections for pseudo accounts.
 bin:		root
