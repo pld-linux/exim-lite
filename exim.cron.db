@@ -1,6 +1,4 @@
 #!/bin/sh
 cd /
 /usr/bin/exim_tidydb -t 28d /var/spool/exim retry
-/usr/bin/exim_tidydb -f     /var/spool/exim retry
-/usr/bin/exim_tidydb -t 28d /var/spool/exim wait-smtp
-/usr/bin/exim_tidydb -f     /var/spool/exim wait-smtp
+/usr/bin/exim_tidydb -t 28d /var/spool/exim wait-remote_smtp
