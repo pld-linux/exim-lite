@@ -1,4 +1,4 @@
-# Customized setings for exim
+# Customized settings for exim
 
 # Nice level for exim
 SERVICE_RUN_NICE_LEVEL="+5"
