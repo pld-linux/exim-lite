@@ -132,8 +132,8 @@ cp -f exim_monitor/EDITME Local/eximon.conf
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	LOOKUP_CDB=yes \
-XLFLAGS=-L%{_prefix}/X11R6/%{_lib} \
-X11_LD_LIB=%{_prefix}/X11R6/%{_lib} \
+	XLFLAGS=-L%{_prefix}/X11R6/%{_lib} \
+	X11_LD_LIB=%{_prefix}/X11R6/%{_lib} \
 	LOOKUP_LIBS="" \
 	LOOKUP_INCLUDE=""
 
@@ -145,25 +145,25 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/mail
 install -d $RPM_BUILD_ROOT/etc/{cron.{daily,weekly},logrotate.d,rc.d/init.d,sysconfig,pam.d}
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man8,/usr/lib}
 install -d $RPM_BUILD_ROOT%{_var}/{spool/exim/{db,input,msglog},log/{archiv,}/exim,mail}
-install -d $RPM_BUILD_ROOT{%{_infodir},%{_prefix}/X11R6/bin,%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_infodir},%{_desktopdir},%{_pixmapsdir}}
 
 install build-Linux-*/exim{,_fixdb,_tidydb,_dbmbuild,on.bin,_dumpdb,_lock} \
 	build-Linux-*/exi{cyclog,next,what} %{SOURCE10} \
 	build-Linux-*/{exigrep,eximstats,exiqsumm,convert4r4} \
 	util/unknownuser.sh \
 	$RPM_BUILD_ROOT%{_bindir}
-install build-Linux-*/eximon.bin $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
-install build-Linux-*/eximon $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
+install build-Linux-*/eximon.bin $RPM_BUILD_ROOT%{_bindir}
+install build-Linux-*/eximon $RPM_BUILD_ROOT%{_bindir}
 
 install %{SOURCE5} .
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/cron.weekly/
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/cron.weekly
 install %{SOURCE12} $RPM_BUILD_ROOT/etc/sysconfig/%{orig_name}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/%{orig_name}
 install	%{SOURCE11} $RPM_BUILD_ROOT/etc/logrotate.d/%{orig_name}
 install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/mail/exim.conf
-install {doc,man}/*.8 $RPM_BUILD_ROOT%{_mandir}/man8/
+install {doc,man}/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install %{SOURCE9} $RPM_BUILD_ROOT%{_sysconfdir}/mail/aliases
-install	*.info* $RPM_BUILD_ROOT%{_infodir}/
+install	*.info* $RPM_BUILD_ROOT%{_infodir}
 install %{SOURCE15} $RPM_BUILD_ROOT/etc/pam.d/smtp
 
 ln -sf %{_bindir}/exim $RPM_BUILD_ROOT%{_sbindir}/sendmail
@@ -243,11 +243,11 @@ fi
 %defattr(644,root,root,755)
 %doc README* NOTICE LICENCE analyse-log-errors doc/{ChangeLog,NewStuff,dbm.discuss.txt,filter.txt,spec.txt,Exim*.upgrade,OptionLists.txt%{?with_exiscan:,exiscan-*.txt}} build-Linux-*/transport-filter.pl
 %dir %{_sysconfdir}/mail
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mail/exim.conf
-%{?with_saexim:%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mail/sa-exim.conf}
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mail/aliases
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/exim
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/exim
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/exim.conf
+%{?with_saexim:%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/sa-exim.conf}
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/aliases
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/exim
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/exim
 %attr(754,root,root) /etc/rc.d/init.d/exim
 %attr(4755,root,root) %{_bindir}/exim
 %attr(770,root,exim) %dir %{_var}/spool/exim
@@ -274,12 +274,13 @@ fi
 %attr(750,exim,root) %dir %{_var}/log/exim
 %attr(750,exim,root) %dir %{_var}/log/archiv/exim
 %attr(640,exim,root) %ghost %{_var}/log/exim/*
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/smtp
-%{_infodir}/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/smtp
+%{_infodir}/*.info*
 %{_mandir}/man8/*
 
 %files X11
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/X11R6/bin/*
-%{_desktopdir}/%{orig_name}on.desktop
-%{_pixmapsdir}/%{orig_name}on.png
+%attr(755,root,root) %{_bindir}/eximon
+%attr(755,root,root) %{_bindir}/eximon.bin
+%{_desktopdir}/eximon.desktop
+%{_pixmapsdir}/eximon.png
