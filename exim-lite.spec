@@ -19,7 +19,6 @@ Source6:	%{orig_name}on.desktop
 # 20021016: http://www.logic.univie.ac.at/~ametzler/debian/exim4manpages/
 Source7:	%{orig_name}4-man-021016.tar.bz2
 # Source7-md5:	b552704ebf853a401946038a2b7e8e98
-Source8:	http://duncanthrax.net/exiscan-acl/exiscan-acl-%{exiscan_version}.patch.bz2
 # Source8-md5:	b2c629ee8f7edf7c0641e3cff4a602f6
 Source9:	%{orig_name}.aliases
 Source10:	newaliases
@@ -31,7 +30,6 @@ Source14:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/config.samples.t
 # Source14-md5:	42c7d5c02d06fdd3d8b6ba124ad9fd05
 Source15:	%{orig_name}4-smtp.pamd
 Source16:	%{orig_name}on.png
-Source17:	http://marc.merlins.org/linux/exim/files/sa-exim-%{saexim_version}.tar.gz
 # Source17-md5:	34892f195384c127f7c40c461a9ef421
 Patch0:		%{orig_name}4-EDITME.patch
 Patch1:		%{orig_name}4-monitor-EDITME.patch
