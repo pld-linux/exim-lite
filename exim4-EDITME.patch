@@ -90,7 +90,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
 -# AUTH_PLAINTEXT=yes
 -# AUTH_SPA=yes
 +AUTH_CRAM_MD5=yes
-+AUTH_CYRUS_SASL=yes
++# AUTH_CYRUS_SASL=yes
 +AUTH_PLAINTEXT=yes
 +AUTH_SPA=yes
  
