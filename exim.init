@@ -23,9 +23,13 @@ else
 fi
 
 # Check that networking is up.
-if is_no "${NETWORKING}"; then
-	msg_Network_Down Exim
-	exit 1
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		msg_network_down Exim
+		exit 1
+	fi
+else
+	exit 0
 fi
 
 # See how we were called.
@@ -40,7 +44,7 @@ case "$1" in
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/exim
 	else
-		msg_Already_Running Exim
+		msg_already_running Exim
 	fi
 	;;
   stop)
@@ -50,7 +54,7 @@ case "$1" in
 		killproc exim
 		rm -f /var/lock/subsys/exim >/dev/null 2>&1
 	else
-		msg_Not_Running Exim
+		msg_not_running Exim
 		exit 1
 	fi	
 	;;
@@ -63,12 +67,14 @@ case "$1" in
 	;;
   reload)
 	msg_reloading Exim
+	busy
 	killproc exim -HUP
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && ok || died
 	;;
   *)
-	msg_Usage "$0 {start|stop|restart|reload|status}"
+	msg_usage "$0 {start|stop|restart|reload|status}"
 	exit 1
 esac
 
 exit $RETVAL
-
