@@ -1,5 +1,7 @@
-# yes|no
-DAEMON=yes
+# Customized setings for exim
+
+# Nice level for exim
+SERVICE_RUN_NICE_LEVEL="+5"
 
 # queue time
 QUEUE=1h
