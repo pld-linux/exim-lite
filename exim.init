@@ -25,7 +25,7 @@ else
 fi
 
 # Check that networking is up.
-[ ${NETWORKING} = "no" ] && exit 0
+[ "${NETWORKING}" = "no" ] && exit 0
 
 [ -f /usr/bin/exim ] || exit 0
 
@@ -33,17 +33,15 @@ fi
 case "$1" in
   start)
 	# Start daemons.
-	echo -n "Starting exim: "
-	daemon /usr/bin/exim $([ "$DAEMON" = yes ] && echo -bd) \
+	show Starting exim:
+	daemon +5 exim $([ "$DAEMON" = yes ] && echo -bd) \
                                   $([ -n "$QUEUE" ] && echo -q$QUEUE)
-	echo
 	touch /var/lock/subsys/exim
 	;;
   stop)
 	# Stop daemons.
-	echo -n "Shutting down exim: "
+	show Shutting down exim:
 	killproc exim
-	echo
 	rm -f /var/lock/subsys/exim
 	;;
   restart)
@@ -54,7 +52,7 @@ case "$1" in
 	status exim
 	;;
   *)
-	echo "Usage: exim {start|stop|restart|status}"
+	echo "Usage: $0 {start|stop|restart|status}"
 	exit 1
 esac
 
