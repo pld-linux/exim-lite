@@ -3,7 +3,7 @@ Summary:	Lite version of exim Mail Transfer Agent
 Summary(pl):	Lekka wersja Agenta Transferu Poczty
 Name:		exim-lite
 Version:	4.43
-Release:	0.1
+Release:	0.2
 Epoch:		2
 License:	GPL
 Group:		Networking/Daemons
@@ -56,6 +56,7 @@ Requires(post):	fileutils
 Requires(post):	/bin/hostname
 Requires(post,preun):	/sbin/chkconfig
 Requires:	pam >= 0.77.3
+Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 Provides:	group(exim)
 Provides:	smtpdaemon
 Provides:	user(exim)
