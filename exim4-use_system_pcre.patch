@@ -7,7 +7,7 @@ diff -urN exim-3.952.orig/OS/Makefile-Base exim-3.952/OS/Makefile-Base
  
 -allexim: config.h buildpcre $(EXIM_MONITOR) exicyclog exinext exiwhat \
 +allexim: config.h $(EXIM_MONITOR) exicyclog exinext exiwhat \
-         exigrep eximstats exiqgrep exiqsumm \
+         exigrep eximstats exipick exiqgrep exiqsumm \
          transport-filter.pl convert4r3 convert4r4 \
          exim_checkaccess \
 @@ -235,7 +235,7 @@
