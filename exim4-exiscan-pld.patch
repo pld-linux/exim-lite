@@ -1,6 +1,6 @@
-diff -urN exiscan-4.12-20/exiscan-4.12-20.patch.org exiscan-4.12-20/exiscan-4.12-20.patch
---- exiscan-4.12-20/exiscan-4.12-20.patch.org	Fri Oct  4 14:19:29 2002
-+++ exiscan-4.12-20/exiscan-4.12-20.patch	Fri Oct 18 23:15:29 2002
+diff -urN exiscan-4.12-21.orig/exiscan-4.12-21.patch exiscan-4.12-21/exiscan-4.12-21.patch
+--- exiscan-4.12-21.orig/exiscan-4.12-21.patch	Mon Jan 20 21:52:25 2003
++++ exiscan-4.12-21/exiscan-4.12-21.patch	Mon Jan 20 21:52:45 2003
 @@ -17,15 +17,15 @@
  -        local_scan.o $(EXIM_PERL)
  +        local_scan.o exiscan.o $(EXIM_PERL)
@@ -20,9 +20,25 @@ diff -urN exiscan-4.12-20/exiscan-4.12-20.patch.org exiscan-4.12-20/exiscan-4.12
  -	  routers/routers.a transports/transports.a lookups/lookups.a \
  +	  routers/routers.a mime/ripmime.a transports/transports.a lookups/lookups.a \
   	  auths/auths.a \
-diff -Nur doc.org/exiscan-mks.txt doc/exiscan-mks.txt
---- doc.org/exiscan-mks.txt     Thu Jan  1 01:00:00 1970
-+++ doc/exiscan-mks.txt Sat Oct 19 22:50:38 2002
+diff -urN exiscan-4.12-21.orig/exiscan-clamav.txt exiscan-4.12-21/exiscan-clamav.txt
+--- /dev/null	Thu Jan  1 01:00:00 1970
++++ doc/exiscan-clamav.txt	Mon Jan 20 21:58:02 2003
+@@ -0,0 +1,12 @@
++#exiscan
++exiscan_condition = 1
++exiscan_crypt_salt = pq
++exiscan_timeout = 5m
++exiscan_unpack_mime = true
++
++#Antivirus facility (AV) options:
++
++exiscan_av_condition = 1
++exiscan_av_action = redirect virus@localhost
++exiscan_av_scanner = clamav
++exiscan_av_clamd_socket = /tmp/clamad
+diff -urN exiscan-4.12-21.orig/exiscan-mks.txt exiscan-4.12-21/exiscan-mks.txt
+--- /dev/null	Thu Jan  1 01:00:00 1970
++++ doc/exiscan-mks.txt	Mon Jan 20 21:52:45 2003
 @@ -0,0 +1,15 @@
 +#exiscan
 +exiscan_condition = 1
