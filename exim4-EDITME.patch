@@ -1,5 +1,6 @@
---- exim-4.01/src/EDITME.org	Mon Mar  4 11:03:40 2002
-+++ exim-4.01/src/EDITME	Thu Mar  7 11:54:10 2002
+diff -urN exim-4.02.org/src/EDITME exim-4.02/src/EDITME
+--- exim-4.02.org/src/EDITME	Tue Mar 26 13:02:27 2002
++++ exim-4.02/src/EDITME	Tue Mar 26 13:24:21 2002
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -114,6 +115,15 @@
  
 -ZCAT_COMMAND=/usr/bin/zcat
 +ZCAT_COMMAND=/bin/zcat
+ 
+ 
+ #------------------------------------------------------------------------------
+@@ -422,7 +423,7 @@
+ # (version 5.004 or later) installed, set EXIM_PERL to perl.o. Using embedded
+ # Perl costs quite a lot of resources. Only do this if you really need it.
+ 
+-# EXIM_PERL=perl.o
++EXIM_PERL=perl.o
  
  
  #------------------------------------------------------------------------------
