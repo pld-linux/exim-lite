@@ -1,16 +1,16 @@
-diff -urN exim-3.952.orig/OS/Makefile-Base exim-3.952/OS/Makefile-Base
---- exim-3.952.orig/OS/Makefile-Base	Tue Dec 18 13:04:43 2001
-+++ exim-3.952/OS/Makefile-Base	Tue Jan 15 16:23:40 2002
+diff -urP exim-4.31.orig/OS/Makefile-Base exim-4.31/OS/Makefile-Base
+--- exim-4.31.orig/OS/Makefile-Base	Thu Apr  8 00:13:17 2004
++++ exim-4.31/OS/Makefile-Base	Thu Apr  8 00:15:59 2004
 @@ -94,7 +94,7 @@
  # This is the real default target for all the various exim binaries and
  # scripts, once the configuring stuff is done.
  
 -allexim: config.h buildpcre $(EXIM_MONITOR) exicyclog exinext exiwhat \
 +allexim: config.h $(EXIM_MONITOR) exicyclog exinext exiwhat \
-         exigrep eximstats exiqgrep exiqsumm \
+         exigrep eximstats exipick exiqgrep exiqsumm \
          transport-filter.pl convert4r3 convert4r4 \
          exim_checkaccess \
-@@ -235,7 +235,7 @@
+@@ -295,7 +295,7 @@
          store.o string.o tls.o tod.o transport.o tree.o verify.o \
          local_scan.o $(EXIM_PERL)
  
@@ -19,18 +19,18 @@ diff -urN exim-3.952.orig/OS/Makefile-Base exim-3.952/OS/Makefile-Base
          routers/routers.a transports/transports.a \
          $(OBJ_EXIM) version.c
  	@echo " "
-@@ -244,7 +244,7 @@
+@@ -304,7 +304,7 @@
  	$(CC) -c $(CFLAGS) $(INCLUDE) $(IPV6_INCLUDE) $(TLS_INCLUDE) version.c
- 	/bin/rm -f exim
+ 	rm -f exim
  	$(PURIFY) $(LNCC) -o exim $(LFLAGS) $(OBJ_EXIM) version.o \
 -	  pcre/libpcre.a \
 +	  -lpcre \
  	  routers/routers.a transports/transports.a lookups/lookups.a \
  	  auths/auths.a \
  	  $(LIBRESOLV) $(LIBS) $(LIBS_EXIM) $(IPV6_LIBS) $(EXTRALIBS) \
-@@ -347,12 +347,12 @@
+@@ -406,12 +406,12 @@
  
- OBJ_MONBIN = util-spool_in.o util-store.o util-string.o tree.o $(MONBIN)
+ OBJ_MONBIN = util-spool_in.o util-store.o util-string.o tod.o tree.o $(MONBIN)
  
 -eximon.bin: $(EXIMON_EDITME) eximon $(OBJ_MONBIN) pcre/libpcre.a \
 +eximon.bin: $(EXIMON_EDITME) eximon $(OBJ_MONBIN) \
