@@ -1,5 +1,6 @@
---- exim-4.30/src/EDITME.orig	2003-12-01 10:15:41.000000000 +0000
-+++ exim-4.30/src/EDITME	2003-12-02 12:14:36.000000000 +0000
+diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
+--- exim-4.43.org/src/EDITME	2004-10-07 14:25:49.533597214 +0200
++++ exim-4.43/src/EDITME	2004-10-07 14:28:22.292872122 +0200
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -28,6 +29,15 @@
  
  # If you specify EXIM_USER as a name, this is looked up at build time, and the
  # uid number is built into the binary. However, you can specify that this
+@@ -206,7 +207,7 @@
+ 
+ # This one is very special-purpose, so is not included by default.
+ 
+-# ROUTER_IPLOOKUP=yes
++ROUTER_IPLOOKUP=yes
+ 
+ 
+ #------------------------------------------------------------------------------
 @@ -227,7 +228,7 @@
  # This one is special-purpose, and commonly not required, so it is not
  # included by default.
@@ -71,7 +81,7 @@
  # LOOKUP_PGSQL=yes
  # LOOKUP_WHOSON=yes
  
-@@ -407,10 +407,10 @@
+@@ -406,10 +407,10 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
  
@@ -86,7 +96,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -466,10 +467,10 @@
+@@ -495,10 +496,10 @@
  # leave these settings commented out.
  
  # This setting is required for any TLS support (either OpenSSL or GnuTLS)
@@ -99,7 +109,7 @@
  
  # Uncomment these settings if you are using GnuTLS
  # USE_GNUTLS=yes
-@@ -520,7 +521,7 @@
+@@ -549,7 +550,7 @@
  # Once you have done this, "make install" will build the info files and
  # install them in the directory you have defined.
  
@@ -108,7 +118,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -533,7 +534,7 @@
+@@ -562,7 +563,7 @@
  # %s. This will be replaced by one of the strings "main", "panic", or "reject"
  # to form the final file names. Some installations may want something like this:
  
@@ -117,7 +127,7 @@
  
  # which results in files with names /var/log/exim_mainlog, etc. The directory
  # in which the log files are placed must exist; Exim does not try to create
-@@ -582,7 +583,7 @@
+@@ -611,7 +612,7 @@
  # files. Both the name of the command and the suffix that it adds to files
  # need to be defined here. See also the EXICYCLOG_MAX configuration.
  
@@ -126,7 +136,7 @@
  COMPRESS_SUFFIX=gz
  
  
-@@ -590,7 +591,7 @@
+@@ -619,7 +620,7 @@
  # If the exigrep utility is fed compressed log files, it tries to uncompress
  # them using this command.
  
@@ -135,7 +145,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -599,7 +600,7 @@
+@@ -628,7 +629,7 @@
  # (version 5.004 or later) installed, set EXIM_PERL to perl.o. Using embedded
  # Perl costs quite a lot of resources. Only do this if you really need it.
  
@@ -144,7 +154,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -609,11 +610,12 @@
+@@ -638,11 +639,12 @@
  # support, which is intended for use in conjunction with the SMTP AUTH
  # facilities, is included only when requested by the following setting:
  
@@ -158,7 +168,7 @@
  
  #------------------------------------------------------------------------------
  # Support for authentication via Radius is also available. The Exim support,
-@@ -638,7 +640,7 @@
+@@ -682,7 +684,7 @@
  # /var/pwcheck) and chown it to exim's user and group. Once you have installed
  # pwcheck, you should arrange for it to be started by root at boot time.
  
@@ -167,7 +177,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -655,7 +657,7 @@
+@@ -699,7 +701,7 @@
  # group. Once you have installed saslauthd, you should arrange for it to be
  # started by root at boot time.
  
@@ -176,7 +186,16 @@
  
  
  #------------------------------------------------------------------------------
-@@ -767,7 +769,7 @@
+@@ -759,7 +761,7 @@
+ # is "yes", as well as supporting line editing, a history of input lines in the
+ # current run is maintained.
+ 
+-# USE_READLINE=yes
++USE_READLINE=yes
+ 
+ 
+ 
+@@ -830,7 +832,7 @@
  # period (for example, /usr/exim/configure.host.in.some.domain). If this file
  # does not exist, then the bare configuration file name is tried.
  
@@ -185,7 +204,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -940,7 +942,7 @@
+@@ -1003,7 +1005,7 @@
  # be changed here. The default is 0640 so that information from the spool is
  # available to anyone who is a member of the Exim group.
  
