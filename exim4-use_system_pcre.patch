@@ -1,0 +1,45 @@
+diff -urN exim-3.952.orig/OS/Makefile-Base exim-3.952/OS/Makefile-Base
+--- exim-3.952.orig/OS/Makefile-Base	Tue Dec 18 13:04:43 2001
++++ exim-3.952/OS/Makefile-Base	Tue Jan 15 16:23:40 2002
+@@ -85,7 +85,7 @@
+ # This is the real default target for all the various exim binaries and
+ # scripts, once the configuring stuff is done.
+ 
+-allexim: config.h buildpcre $(EXIM_MONITOR) exicyclog exinext exiwhat \
++allexim: config.h $(EXIM_MONITOR) exicyclog exinext exiwhat \
+         exigrep eximstats exiqsumm \
+         transport-filter.pl convert4r3 convert4r4 \
+         exim_checkaccess \
+@@ -235,7 +235,7 @@
+         store.o string.o tls.o tod.o transport.o tree.o verify.o \
+         local_scan.o $(EXIM_PERL)
+ 
+-exim:   pcre/libpcre.a lookups/lookups.a auths/auths.a \
++exim:   lookups/lookups.a auths/auths.a \
+         routers/routers.a transports/transports.a \
+         $(OBJ_EXIM) version.c
+ 	@echo " "
+@@ -244,7 +244,7 @@
+ 	$(CC) -c $(CFLAGS) $(INCLUDE) $(IPV6_INCLUDE) $(TLS_INCLUDE) version.c
+ 	/bin/rm -f exim
+ 	$(PURIFY) $(LNCC) -o exim $(LFLAGS) $(OBJ_EXIM) version.o \
+-	  pcre/libpcre.a \
++	  -lpcre \
+ 	  routers/routers.a transports/transports.a lookups/lookups.a \
+ 	  auths/auths.a \
+ 	  $(LIBRESOLV) $(LIBS) $(LIBS_EXIM) $(IPV6_LIBS) $(EXTRALIBS) \
+@@ -347,12 +347,12 @@
+ 
+ OBJ_MONBIN = util-spool_in.o util-store.o util-string.o tree.o $(MONBIN)
+ 
+-eximon.bin: $(EXIMON_EDITME) eximon $(OBJ_MONBIN) pcre/libpcre.a \
++eximon.bin: $(EXIMON_EDITME) eximon $(OBJ_MONBIN) \
+             ../exim_monitor/em_version.c
+ 	$(CC) -o em_version.o -c \
+ 	  $(CFLAGS) $(XINCLUDE) -I. ../exim_monitor/em_version.c
+ 	$(PURIFY) $(LNCC) -o eximon.bin em_version.o $(LFLAGS) $(XLFLAGS) \
+-	$(OBJ_MONBIN) -lXaw -lXmu -lXt -lXext -lX11 pcre/libpcre.a \
++	$(OBJ_MONBIN) -lXaw -lXmu -lXt -lXext -lX11 -lpcre \
+ 	  $(LIBS) $(LIBS_EXIMON) $(EXTRALIBS) $(EXTRALIBS_EXIMON) -lc
+ 	@if [ x"$(STRIP_COMMAND)" != x"" ]; then \
+ 	  echo $(STRIP_COMMAND) eximon.bin; \
