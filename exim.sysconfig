@@ -3,5 +3,8 @@
 # Nice level for exim
 SERVICE_RUN_NICE_LEVEL="+5"
 
+# if exim should listen on an SMTP port for incoming messages
+ALLOW_TCP_CONNECTIONS=yes
+
 # queue time
-QUEUE=1h
+QUEUE=15m
