@@ -1,0 +1,21 @@
+/var/log/exim/mainlog {
+    postrotate
+	/usr/bin/killall -HUP exim
+    endscript
+}
+
+/var/log/exim/rejectlog {
+    postrotate
+	/usr/bin/killall -HUP exim
+    endscript
+}
+/var/log/exim/paniclog {
+    postrotate
+	/usr/bin/killall -HUP exim
+    endscript
+}
+/var/log/exim/processlog {
+    postrotate
+	/usr/bin/killall -HUP exim
+    endscript
+}
