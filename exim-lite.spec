@@ -231,7 +231,7 @@ if [ "$1" = "0" ]; then
 	%groupremove exim
 fi
 
-%triggerpostun -- exim  < 3.90
+%triggerpostun -- exim < 3.90
 if [ -f /etc/mail/exim.conf ]; then
 	umask 022
 	mv /etc/mail/exim.conf /etc/mail/exim.conf.3
