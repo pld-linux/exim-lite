@@ -1,6 +1,6 @@
-diff -urN exiscan-4.11-19/exiscan-4.11-19.patch.org exiscan-4.11-19/exiscan-4.11-19.patch
---- exiscan-4.11-19/exiscan-4.11-19.patch.org	Fri Oct  4 14:19:29 2002
-+++ exiscan-4.11-19/exiscan-4.11-19.patch	Fri Oct 18 23:15:29 2002
+diff -urN exiscan-4.12-20/exiscan-4.12-20.patch.org exiscan-4.12-20/exiscan-4.12-20.patch
+--- exiscan-4.12-20/exiscan-4.12-20.patch.org	Fri Oct  4 14:19:29 2002
++++ exiscan-4.12-20/exiscan-4.12-20.patch	Fri Oct 18 23:15:29 2002
 @@ -17,15 +17,15 @@
  -        local_scan.o $(EXIM_PERL)
  +        local_scan.o exiscan.o $(EXIM_PERL)
