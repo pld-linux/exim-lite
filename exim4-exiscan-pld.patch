@@ -1,26 +1,4 @@
-diff -urN exiscan-4.12-21.orig/exiscan-4.12-21.patch exiscan-4.12-21/exiscan-4.12-21.patch
---- exiscan-4.12-21.orig/exiscan-4.12-21.patch	Mon Jan 20 21:52:25 2003
-+++ exiscan-4.12-21/exiscan-4.12-21.patch	Mon Jan 20 21:52:45 2003
-@@ -17,15 +17,15 @@
- -        local_scan.o $(EXIM_PERL)
- +        local_scan.o exiscan.o $(EXIM_PERL)
-  
---exim:   pcre/libpcre.a lookups/lookups.a auths/auths.a \
--+exim:   pcre/libpcre.a mime/ripmime.a lookups/lookups.a auths/auths.a \
-+-exim:   lookups/lookups.a auths/auths.a \
-++exim:   mime/ripmime.a lookups/lookups.a auths/auths.a \
-          routers/routers.a transports/transports.a \
-          $(OBJ_EXIM) version.c
-  	@echo " "
- @@ -265,7 +265,7 @@
-  	rm -f exim
-  	$(PURIFY) $(LNCC) -o exim $(LFLAGS) $(OBJ_EXIM) version.o \
-- 	  pcre/libpcre.a \
-+ 	  -lpcre \
- -	  routers/routers.a transports/transports.a lookups/lookups.a \
- +	  routers/routers.a mime/ripmime.a transports/transports.a lookups/lookups.a \
-  	  auths/auths.a \
-diff -urN exiscan-4.12-21.orig/exiscan-clamav.txt exiscan-4.12-21/exiscan-clamav.txt
+diff -urN exiscan-4.12-23.orig/exiscan-clamav.txt exiscan-4.12-23/exiscan-clamav.txt
 --- /dev/null	Thu Jan  1 01:00:00 1970
 +++ doc/exiscan-clamav.txt	Mon Jan 20 21:58:02 2003
 @@ -0,0 +1,12 @@
@@ -36,7 +14,7 @@ diff -urN exiscan-4.12-21.orig/exiscan-clamav.txt exiscan-4.12-21/exiscan-clamav
 +exiscan_av_action = redirect virus@localhost
 +exiscan_av_scanner = clamav
 +exiscan_av_clamd_socket = /tmp/clamad
-diff -urN exiscan-4.12-21.orig/exiscan-mks.txt exiscan-4.12-21/exiscan-mks.txt
+diff -urN exiscan-4.12-23.orig/exiscan-mks.txt exiscan-4.12-23/exiscan-mks.txt
 --- /dev/null	Thu Jan  1 01:00:00 1970
 +++ doc/exiscan-mks.txt	Mon Jan 20 21:52:45 2003
 @@ -0,0 +1,15 @@
