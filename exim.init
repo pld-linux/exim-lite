@@ -19,13 +19,17 @@
 # Get network config
 . /etc/sysconfig/network
 
+
 # Get service config
-if [ -f /etc/sysconfig/hc-cron ]; then
-	. /etc/sysconfig/hc-cron
+if [ -f /etc/sysconfig/exim ]; then
+	. /etc/sysconfig/exim
 else
 	DAEMON=yes
 	QUEUE=1h
 fi
+
+# Check that networking is up.
+[ "${NETWORKING}" = "no" ] && echo "Error: Networking is down" && exit 0
 
 
 # See how we were called.
