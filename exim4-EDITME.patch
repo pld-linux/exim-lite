@@ -81,6 +81,15 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  # LOOKUP_PGSQL=yes
  # LOOKUP_WHOSON=yes
  
+@@ -328,7 +328,7 @@
+ # WITH_CONTENT_SCAN option. If possible, use the MIME ACL instead of
+ # the "demime" condition.
+
+-# WITH_OLD_DEMIME=yes
++WITH_OLD_DEMIME=yes
+
+ #------------------------------------------------------------------------------
+ # Compiling Exim with experimental features. These are documented in
 @@ -406,10 +407,10 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
