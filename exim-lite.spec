@@ -75,7 +75,7 @@ Obsoletes:	smtpdaemon
 Obsoletes:	ssmtp
 Obsoletes:	zmailer
 Obsoletes:	exim
-BuildRoot:	%{tmpdir}/%{orig_name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Smail like Mail Transfer Agent with single configuration file.
