@@ -1,6 +1,6 @@
 diff -urN exim-texinfo-4.00.org/doc/filter.texinfo exim-texinfo-4.00/doc/filter.texinfo
---- exim-texinfo-4.10.org/doc/filter.texinfo	Sat Jun 30 01:12:24 2001
-+++ exim-texinfo-4.10/doc/filter.texinfo	Sat Jun 30 01:12:53 2001
+--- exim-texinfo-4.20.org/doc/filter.texinfo	Sat Jun 30 01:12:24 2001
++++ exim-texinfo-4.20/doc/filter.texinfo	Sat Jun 30 01:12:53 2001
 @@ -4,10 +4,19 @@
  @set{wmAuthor_email} <ph10@@cus.cam.ac.uk>
  @set{COPYRIGHT1} Copyright @copyright{} @value{wmYear} University of Cambridge
@@ -23,8 +23,8 @@ diff -urN exim-texinfo-4.00.org/doc/filter.texinfo exim-texinfo-4.00/doc/filter.
  @titlepage
  @title The Exim Mail Transfer Agent
 diff -urN exim-texinfo-4.00.org/doc/spec.texinfo exim-texinfo-4.00/doc/spec.texinfo
---- exim-texinfo-4.10.org/doc/spec.texinfo	Sat Jun 30 01:12:24 2001
-+++ exim-texinfo-4.10/doc/spec.texinfo	Sat Jun 30 01:12:54 2001
+--- exim-texinfo-4.20.org/doc/spec.texinfo	Sat Jun 30 01:12:24 2001
++++ exim-texinfo-4.20/doc/spec.texinfo	Sat Jun 30 01:12:54 2001
 @@ -4,10 +4,19 @@
  @set{wmAuthor_email} <ph10@@cus.cam.ac.uk>
  @set{COPYRIGHT1} Copyright @copyright{} @value{wmYear} University of Cambridge
