@@ -1,7 +1,7 @@
-diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
---- exim-4.43.org/src/EDITME	2004-10-07 14:25:49.533597214 +0200
-+++ exim-4.43/src/EDITME	2004-10-07 14:28:22.292872122 +0200
-@@ -98,7 +98,7 @@
+diff -urN exim-4.43.org/src/EDITME exim-4.51/src/EDITME
+--- exim-4.43/src/EDITME	2004-10-07 14:25:49.533597214 +0200
++++ exim-4.51/src/EDITME	2004-10-07 14:28:22.292872122 +0200
+@@ -100,7 +100,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
  
@@ -10,7 +10,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -114,7 +114,7 @@
+@@ -116,7 +116,7 @@
  # don't exist. It will also install a default runtime configuration if this
  # file does not exist.
  
@@ -19,7 +19,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  # It is possible to specify a colon-separated list of files for CONFIGURE_FILE.
  # In this case, Exim will use the first of them that exists when it is run.
-@@ -132,7 +132,8 @@
+@@ -134,7 +134,8 @@
  # owner of a local mailbox.) Specifying these values as root is very strongly
  # discouraged.
  
@@ -29,7 +29,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  # If you specify EXIM_USER as a name, this is looked up at build time, and the
  # uid number is built into the binary. However, you can specify that this
-@@ -206,7 +207,7 @@
+@@ -208,7 +209,7 @@
  
  # This one is very special-purpose, so is not included by default.
  
@@ -38,7 +38,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -227,7 +228,7 @@
+@@ -229,7 +230,7 @@
  # This one is special-purpose, and commonly not required, so it is not
  # included by default.
  
@@ -47,7 +47,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -236,9 +237,9 @@
+@@ -238,9 +239,9 @@
  # MBX, is included only when requested. If you do not know what this is about,
  # leave these settings commented out.
  
@@ -60,7 +60,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -253,16 +254,16 @@
+@@ -255,16 +256,16 @@
  LOOKUP_DBM=yes
  LOOKUP_LSEARCH=yes
  
@@ -81,31 +81,30 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  # LOOKUP_PGSQL=yes
  # LOOKUP_WHOSON=yes
  
-@@ -328,7 +328,7 @@
+@@ -328,7 +329,7 @@
  # WITH_CONTENT_SCAN option. If possible, use the MIME ACL instead of
  # the "demime" condition.
-
+ 
 -# WITH_OLD_DEMIME=yes
 +WITH_OLD_DEMIME=yes
-
+ 
  #------------------------------------------------------------------------------
  # Compiling Exim with experimental features. These are documented in
-@@ -406,10 +407,10 @@
+@@ -464,10 +465,10 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
  
 -# AUTH_CRAM_MD5=yes
--# AUTH_CYRUS_SASL=yes
++AUTH_CRAM_MD5=yes
+ # AUTH_CYRUS_SASL=yes
 -# AUTH_PLAINTEXT=yes
 -# AUTH_SPA=yes
-+AUTH_CRAM_MD5=yes
-+# AUTH_CYRUS_SASL=yes
 +AUTH_PLAINTEXT=yes
 +AUTH_SPA=yes
  
  
  #------------------------------------------------------------------------------
-@@ -495,10 +496,10 @@
+@@ -553,10 +554,10 @@
  # leave these settings commented out.
  
  # This setting is required for any TLS support (either OpenSSL or GnuTLS)
@@ -118,7 +117,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  # Uncomment these settings if you are using GnuTLS
  # USE_GNUTLS=yes
-@@ -549,7 +550,7 @@
+@@ -607,7 +608,7 @@
  # Once you have done this, "make install" will build the info files and
  # install them in the directory you have defined.
  
@@ -127,7 +126,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -562,7 +563,7 @@
+@@ -620,7 +621,7 @@
  # %s. This will be replaced by one of the strings "main", "panic", or "reject"
  # to form the final file names. Some installations may want something like this:
  
@@ -136,7 +135,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  # which results in files with names /var/log/exim_mainlog, etc. The directory
  # in which the log files are placed must exist; Exim does not try to create
-@@ -611,7 +612,7 @@
+@@ -669,7 +670,7 @@
  # files. Both the name of the command and the suffix that it adds to files
  # need to be defined here. See also the EXICYCLOG_MAX configuration.
  
@@ -145,7 +144,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  COMPRESS_SUFFIX=gz
  
  
-@@ -619,7 +620,7 @@
+@@ -677,7 +678,7 @@
  # If the exigrep utility is fed compressed log files, it tries to uncompress
  # them using this command.
  
@@ -154,7 +153,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -628,7 +629,7 @@
+@@ -686,7 +687,7 @@
  # (version 5.004 or later) installed, set EXIM_PERL to perl.o. Using embedded
  # Perl costs quite a lot of resources. Only do this if you really need it.
  
@@ -163,7 +162,16 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -638,11 +639,12 @@
+@@ -695,7 +696,7 @@
+ # -shared option, and you will need to add -export-dynamic to EXTRALIBS so
+ # that the local_scan API is made available by the linker.
+ 
+-# EXPAND_DLFUNC=yes
++EXPAND_DLFUNC=yes
+ 
+ 
+ #------------------------------------------------------------------------------
+@@ -705,11 +706,12 @@
  # support, which is intended for use in conjunction with the SMTP AUTH
  # facilities, is included only when requested by the following setting:
  
@@ -177,7 +185,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  #------------------------------------------------------------------------------
  # Support for authentication via Radius is also available. The Exim support,
-@@ -682,7 +684,7 @@
+@@ -756,7 +758,7 @@
  # /var/pwcheck) and chown it to exim's user and group. Once you have installed
  # pwcheck, you should arrange for it to be started by root at boot time.
  
@@ -186,7 +194,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -699,7 +701,7 @@
+@@ -773,7 +775,7 @@
  # group. Once you have installed saslauthd, you should arrange for it to be
  # started by root at boot time.
  
@@ -195,16 +203,16 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -759,7 +761,7 @@
+@@ -833,7 +835,7 @@
  # is "yes", as well as supporting line editing, a history of input lines in the
  # current run is maintained.
  
 -# USE_READLINE=yes
 +USE_READLINE=yes
  
- 
- 
-@@ -830,7 +832,7 @@
+ # You may need to add -ldl to EXTRA_LIBS when you set USE_READLINE=yes.
+ # Note that this option adds to the size of the Exim binary, because the
+@@ -908,7 +910,7 @@
  # period (for example, /usr/exim/configure.host.in.some.domain). If this file
  # does not exist, then the bare configuration file name is tried.
  
@@ -213,7 +221,7 @@ diff -urN exim-4.43.org/src/EDITME exim-4.43/src/EDITME
  
  
  #------------------------------------------------------------------------------
-@@ -1003,7 +1005,7 @@
+@@ -1081,7 +1083,7 @@
  # be changed here. The default is 0640 so that information from the spool is
  # available to anyone who is a member of the Exim group.
  
