@@ -24,9 +24,9 @@ Source10:	newaliases
 Source11:	%{orig_name}.logrotate
 Source12:	%{orig_name}.sysconfig
 Source13:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/FAQ.txt.bz2
-# Source13-md5:	3e183ae1bc13b05341bb3980a3b899d8
+# Source13-md5:	ff781bd31fb1d574c8b9d33f4bfd34a7
 Source14:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/config.samples.tar.bz2
-# Source14-md5:	b9ce9a90a1b9b516f485452af079a002
+# Source14-md5:	4b93321938a800caa6127c48ad60a42b
 Source15:	%{orig_name}4-smtp.pamd
 Source16:	%{orig_name}on.png
 Patch0:		%{orig_name}4-EDITME.patch
