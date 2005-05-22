@@ -2,15 +2,15 @@
 Summary:	Lite version of exim Mail Transfer Agent
 Summary(pl):	Lekka wersja Agenta Transferu Poczty
 Name:		exim-lite
-Version:	4.43
-Release:	0.2
+Version:	4.51
+Release:	1
 Epoch:		2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/%{orig_name}-%{version}.tar.bz2
-# Source0-md5:	f8f646d4920660cb5579becd9265a3bf
-Source1:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/%{orig_name}-texinfo-4.40.tar.bz2
-# Source1-md5:	cc91bd804ee0f7fd70991e2e6b529033
+# Source0-md5:	36c0c005e012d13beb7edfd8d124c049
+Source1:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/%{orig_name}-texinfo-4.50.tar.bz2
+# Source1-md5:	a12993436e9943083e3ce5b76cf96b11
 Source2:	%{orig_name}.init
 Source3:	%{orig_name}.cron.db
 Source4:	%{orig_name}4.conf
@@ -24,9 +24,9 @@ Source10:	newaliases
 Source11:	%{orig_name}.logrotate
 Source12:	%{orig_name}.sysconfig
 Source13:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/FAQ.txt.bz2
-# Source13-md5:	7c695675e5e60693916b787001252d56
+# Source13-md5:	3e183ae1bc13b05341bb3980a3b899d8
 Source14:	ftp://ftp.csx.cam.ac.uk/pub/software/email/exim/exim4/config.samples.tar.bz2
-# Source14-md5:	42c7d5c02d06fdd3d8b6ba124ad9fd05
+# Source14-md5:	b9ce9a90a1b9b516f485452af079a002
 Source15:	%{orig_name}4-smtp.pamd
 Source16:	%{orig_name}on.png
 Patch0:		%{orig_name}4-EDITME.patch
