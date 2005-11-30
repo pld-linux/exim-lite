@@ -1,48 +1,40 @@
-diff -urN exim-texinfo-4.00.org/doc/filter.texinfo exim-texinfo-4.00/doc/filter.texinfo
---- exim-texinfo-4.50.org/doc/filter.texinfo	Sat Jun 30 01:12:24 2001
-+++ exim-texinfo-4.50/doc/filter.texinfo	Sat Jun 30 01:12:53 2001
-@@ -4,10 +4,19 @@
- @set{wmAuthor_email} <ph10@@cus.cam.ac.uk>
- @set{COPYRIGHT1} Copyright @copyright{} @value{wmYear} University of Cambridge
- @c %**start of header
--@setfilename filter.info
-+@setfilename exim_filter.info
- @settitle Exim Filter Specification
- @paragraphindent 0
- @c %**end of header
-+
+diff -Nur exim-texinfo-4.60.orig/doc/filter.texinfo exim-texinfo-4.60/doc/filter.texinfo
+--- exim-texinfo-4.60.orig/doc/filter.texinfo	Wed Nov 30 18:46:57 2005
++++ exim-texinfo-4.60/doc/filter.texinfo	Wed Nov 30 18:50:13 2005
+@@ -2,10 +2,15 @@
+ @setfilename exim_filtering.info
+ @documentencoding us-ascii
+ @settitle Exim's interfaces to mail filtering
 +@ifinfo
 +@format
 +@dircategory Net utilities:
-+@direntry
-+* Exim Filters: (exim_filter).		Message Transfer Agent
-+@end direntry
+ @direntry
+ * Exim's interfaces to mail filtering: (exim_filtering).
+                                                   [MISSING TEXT]
+ @end direntry
 +@end format
 +@end ifinfo
  
- @titlepage
- @title The Exim Mail Transfer Agent
-diff -urN exim-texinfo-4.00.org/doc/spec.texinfo exim-texinfo-4.00/doc/spec.texinfo
---- exim-texinfo-4.50.org/doc/spec.texinfo	Sat Jun 30 01:12:24 2001
-+++ exim-texinfo-4.50/doc/spec.texinfo	Sat Jun 30 01:12:54 2001
-@@ -4,10 +4,19 @@
- @set{wmAuthor_email} <ph10@@cus.cam.ac.uk>
- @set{COPYRIGHT1} Copyright @copyright{} @value{wmYear} University of Cambridge
- @c %**start of header
--@setfilename spec.info
+ @node Top, Forwarding and filtering in Exim, , (dir)
+ @documentlanguage en
+diff -Nur exim-texinfo-4.60.orig/doc/spec.texinfo exim-texinfo-4.60/doc/spec.texinfo
+--- exim-texinfo-4.60.orig/doc/spec.texinfo	Wed Nov 30 18:46:57 2005
++++ exim-texinfo-4.60/doc/spec.texinfo	Wed Nov 30 18:52:03 2005
+@@ -1,11 +1,16 @@
+ \input texinfo
+-@setfilename the_exim_mta.info
 +@setfilename exim.info
- @settitle Exim Specification
- @paragraphindent 0
- @c %**end of header
-+
+ @documentencoding us-ascii
+ @settitle Specification of the Exim Mail Transfer Agent
 +@ifinfo
 +@format
 +@dircategory Net utilities:
-+@direntry
-+* Exim: (exim).				Message Transfer Agent
-+@end direntry
+ @direntry
+ * Specification of the Exim Mail Transfer Agent: (the_exim_mta).
+                                                   [MISSING TEXT]
+ @end direntry
 +@end format
 +@end ifinfo
  
- @titlepage
- @title The Exim Mail Transfer Agent
+ @node Top, Introduction, , (dir)
+ @documentlanguage en
