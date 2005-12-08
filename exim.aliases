@@ -6,7 +6,7 @@
 #
 #	>>>>>>>>>>	The program "newaliases" must be run after
 #	>> NOTE >>	this file is updated for any changes to
-#	>>>>>>>>>>	show through to sendmail.
+#	>>>>>>>>>>	show through to exim.
 #
 
 # Basic system aliases -- these MUST be present.
@@ -35,6 +35,9 @@ operator:	root
 
 # trap decode to catch security attacks
 decode:		root
+
+# Standard users added by PLD:
+stats:        root
 
 # Person who should get root's mail
 #root:		wallner
