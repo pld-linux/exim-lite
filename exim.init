@@ -63,7 +63,7 @@ case "$1" in
 		rm -f /var/lock/subsys/exim >/dev/null 2>&1
 	else
 		msg_not_running Exim
-	fi	
+	fi
 	;;
   restart)
 	$0 stop
