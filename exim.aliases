@@ -37,7 +37,7 @@ operator:	root
 decode:		root
 
 # Standard users added by PLD:
-stats:        root
+stats:		root
 
 # Person who should get root's mail
 #root:		wallner
