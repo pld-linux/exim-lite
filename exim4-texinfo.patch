@@ -1,6 +1,6 @@
-diff -Nur exim-texinfo-4.60.orig/doc/filter.texinfo exim-texinfo-4.60/doc/filter.texinfo
---- exim-texinfo-4.60.orig/doc/filter.texinfo	Wed Nov 30 18:46:57 2005
-+++ exim-texinfo-4.60/doc/filter.texinfo	Wed Nov 30 18:50:13 2005
+diff -Nur exim-texinfo-4.61.orig/doc/filter.texinfo exim-texinfo-4.61/doc/filter.texinfo
+--- exim-texinfo-4.61.orig/doc/filter.texinfo	Wed Nov 30 18:46:57 2005
++++ exim-texinfo-4.61/doc/filter.texinfo	Wed Nov 30 18:50:13 2005
 @@ -2,10 +2,15 @@
  @setfilename exim_filtering.info
  @documentencoding us-ascii
@@ -17,9 +17,9 @@ diff -Nur exim-texinfo-4.60.orig/doc/filter.texinfo exim-texinfo-4.60/doc/filter
  
  @node Top, Forwarding and filtering in Exim, , (dir)
  @documentlanguage en
-diff -Nur exim-texinfo-4.60.orig/doc/spec.texinfo exim-texinfo-4.60/doc/spec.texinfo
---- exim-texinfo-4.60.orig/doc/spec.texinfo	Wed Nov 30 18:46:57 2005
-+++ exim-texinfo-4.60/doc/spec.texinfo	Wed Nov 30 18:52:03 2005
+diff -Nur exim-texinfo-4.61.orig/doc/spec.texinfo exim-texinfo-4.61/doc/spec.texinfo
+--- exim-texinfo-4.61.orig/doc/spec.texinfo	Wed Nov 30 18:46:57 2005
++++ exim-texinfo-4.61/doc/spec.texinfo	Wed Nov 30 18:52:03 2005
 @@ -1,11 +1,16 @@
  \input texinfo
 -@setfilename the_exim_mta.info
