@@ -80,7 +80,7 @@ case "$1" in
 		killproc exim -HUP
 		RETVAL=$?
 	else
-		msg_not_running Exim >&2
+		msg_not_running Exim
 		exit 7
 	fi
 	;;
