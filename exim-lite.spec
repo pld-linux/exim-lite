@@ -45,23 +45,24 @@ BuildRequires:	perl-devel >= 1:5.6.0
 BuildRequires:	readline-devel
 BuildRequires:	rpmbuild(macros) >= 1.202
 BuildRequires:	texinfo
-PreReq:		rc-scripts
+Requires(post):	/bin/hostname
+Requires(post):	fileutils
+Requires(post,preun):	/sbin/chkconfig
+Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/bin/getgid
 Requires(pre):	/usr/sbin/groupadd
 Requires(pre):	/usr/sbin/useradd
-Requires(postun):	/usr/sbin/groupdel
-Requires(postun):	/usr/sbin/userdel
-Requires(post):	fileutils
-Requires(post):	/bin/hostname
-Requires(post,preun):	/sbin/chkconfig
 Requires:	pam >= 0.77.3
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
+Requires:	rc-scripts
+Provides:	exim
 Provides:	group(exim)
 Provides:	smtpdaemon
 Provides:	user(exim)
-Provides:	exim
 Obsoletes:	courier
+Obsoletes:	exim
 Obsoletes:	masqmail
 Obsoletes:	nullmailer
 Obsoletes:	omta
@@ -75,7 +76,6 @@ Obsoletes:	smail
 Obsoletes:	smtpdaemon
 Obsoletes:	ssmtp
 Obsoletes:	zmailer
-Obsoletes:	exim
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -228,9 +228,9 @@ fi
 %doc README* NOTICE LICENCE analyse-log-errors doc/{ChangeLog,NewStuff,dbm.discuss.txt,filter.txt,spec.txt,Exim*.upgrade,OptionLists.txt%{?with_exiscan:,exiscan-*.txt}} build-Linux-*/transport-filter.pl
 %dir %{_sysconfdir}/mail
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/exim.conf
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/aliases
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/exim
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/exim
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/aliases
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/exim
+%config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/exim
 %attr(754,root,root) /etc/rc.d/init.d/exim
 %attr(4755,root,root) %{_bindir}/exim
 %attr(770,root,exim) %dir %{_var}/spool/exim
