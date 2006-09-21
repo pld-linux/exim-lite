@@ -1,5 +1,10 @@
 #!/bin/sh
 cd /
-/usr/bin/find /var/spool/exim/db -maxdepth 1 -name '*.lockfile' -or -type f -printf '%f\0' | xargs -0r -n 1 /usr/bin/exim_tidydb /var/spool/exim > /dev/null
+
+SPOOLDIR="$(/usr/bin/exim -bP spool_directory | /bin/sed 's/.*=[[:space:]]\(.*\)/\1/')"
+
+[ ! -d "$SPOOLDIR" ] && echo "Spooldir [$SPOOLDIR] is not a directory" && exit 1
+
+/usr/bin/find $SPOOLDIR -maxdepth 1 -name '*.lockfile' -or -type f -printf '%f\0' | xargs -0r -n 1 /usr/bin/exim_tidydb $SPOOLDIR > /dev/null
 
 exit 0
