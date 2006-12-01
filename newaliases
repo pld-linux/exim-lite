@@ -1,2 +1,3 @@
 #!/bin/sh
-/usr/bin/exim_dbmbuild /etc/mail/aliases /var/spool/exim/db/aliases  && chown exim.exim /var/spool/exim/db/aliases
+umask 027
+/usr/bin/exim_dbmbuild /etc/mail/aliases /var/spool/exim/db/aliases  && chown exim:exim /var/spool/exim/db/aliases
