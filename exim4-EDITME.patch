@@ -1,6 +1,6 @@
 diff -urN exim-4.64.org/src/EDITME exim-4.64/src/EDITME
 --- exim-4.64.org/src/EDITME	2006-12-20 10:46:04.000000000 +0100
-+++ exim-4.64/src/EDITME	2006-12-21 16:38:55.955956000 +0100
++++ exim-4.64/src/EDITME	2006-12-21 16:57:08.676246750 +0100
 @@ -100,7 +100,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -105,9 +105,10 @@ diff -urN exim-4.64.org/src/EDITME exim-4.64/src/EDITME
 -# AUTH_CRAM_MD5=yes
 +AUTH_CRAM_MD5=yes
  # AUTH_CYRUS_SASL=yes
- # AUTH_DOVECOT=yes
+-# AUTH_DOVECOT=yes
 -# AUTH_PLAINTEXT=yes
 -# AUTH_SPA=yes
++AUTH_DOVECOT=yes
 +AUTH_PLAINTEXT=yes
 +AUTH_SPA=yes
  
