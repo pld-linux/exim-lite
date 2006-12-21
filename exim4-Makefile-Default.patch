@@ -1,7 +1,7 @@
-diff -urN exim-3.951.org/OS/Makefile-Default exim-3.951/OS/Makefile-Default
---- exim-3.951.org/OS/Makefile-Default	Fri Nov 23 16:31:13 2001
-+++ exim-3.951/OS/Makefile-Default	Tue Nov 27 16:25:07 2001
-@@ -25,7 +25,7 @@
+diff -urN exim-4.64.org/OS/Makefile-Default exim-4.64/OS/Makefile-Default
+--- exim-4.64.org/OS/Makefile-Default	2006-12-20 10:46:04.000000000 +0100
++++ exim-4.64/OS/Makefile-Default	2006-12-21 16:39:39.098652250 +0100
+@@ -27,7 +27,7 @@
  # found, it uses /usr/ucb/basename. This copes with Solaris 2 and Linux, both
  # of which come in different versions.
  
@@ -10,7 +10,7 @@ diff -urN exim-3.951.org/OS/Makefile-Default exim-3.951/OS/Makefile-Default
  
  
  # If you set STRIP_COMMAND to the path of the "strip" command, it will be run
-@@ -38,8 +38,8 @@
+@@ -40,8 +40,8 @@
  # Some of the following commands live in different places in different OS. We
  # include them all here for generality.
  
@@ -21,12 +21,13 @@ diff -urN exim-3.951.org/OS/Makefile-Default exim-3.951/OS/Makefile-Default
  MV_COMMAND=/bin/mv
  RM_COMMAND=/bin/rm
  
-@@ -149,7 +149,7 @@
- # parameters for include and library directories that may be needed for IPv6
- # on some systems.
+@@ -175,7 +175,7 @@
+ # parameters for include and library directories that may be needed for IPv6 on
+ # some systems, where the support is not yet in the standard library.
  
 -# HAVE_IPV6=YES
 +HAVE_IPV6=YES
  # IPV6_INCLUDE=-I /usr/ipv6/include
  # IPV6_LIBS=-L/usr/ipv6/libs -linet6
  
+
