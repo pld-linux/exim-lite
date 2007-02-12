@@ -1,6 +1,6 @@
 %define		orig_name exim
 Summary:	Lite version of exim Mail Transfer Agent
-Summary(pl.UTF-8):   Lekka wersja Agenta Transferu Poczty
+Summary(pl.UTF-8):	Lekka wersja Agenta Transferu Poczty
 Name:		exim-lite
 Version:	4.51
 Release:	1
@@ -98,8 +98,8 @@ możliwość odrzucania praw roota kiedy jest to możliwe.
 
 %package X11
 Summary:	X11 based Exim administration tool
-Summary(pl.UTF-8):   Narzędzia administracyjne exima dla X11
-Summary(pt_BR.UTF-8):   Monitor X11 para o exim
+Summary(pl.UTF-8):	Narzędzia administracyjne exima dla X11
+Summary(pt_BR.UTF-8):	Monitor X11 para o exim
 Group:		X11/Applications
 
 %description X11
