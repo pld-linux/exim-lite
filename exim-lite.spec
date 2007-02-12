@@ -1,6 +1,6 @@
 %define		orig_name exim
 Summary:	Lite version of exim Mail Transfer Agent
-Summary(pl):	Lekka wersja Agenta Transferu Poczty
+Summary(pl.UTF-8):   Lekka wersja Agenta Transferu Poczty
 Name:		exim-lite
 Version:	4.51
 Release:	1
@@ -87,27 +87,27 @@ lookups, supports sender and/or reciever verification, selective
 relaying, supports virtual domains, built-in mail filtering and can be
 configured to drop root privilleges when possible.
 
-%description -l pl
+%description -l pl.UTF-8
 Agent transferu poczty (MTA) z pojedynczym plikiem konfiguracyjnym.
-Jego zalety: ¶wietne algorytmy, mo¿liwo¶æ przepisywania nag³ówków &
-koperty, wielokrotne dostarczanie poczty podczas jednego po³±czenia
-lub równoleg³e dostarczanie poczty, wyra¿enia regularne w parametrach
+Jego zalety: Å›wietne algorytmy, moÅ¼liwoÅ›Ä‡ przepisywania nagÅ‚Ã³wkÃ³w &
+koperty, wielokrotne dostarczanie poczty podczas jednego poÅ‚Ä…czenia
+lub rÃ³wnolegÅ‚e dostarczanie poczty, wyraÅ¼enia regularne w parametrach
 konfiguracyjnych, weryfikacja nadawcy i/lub odbiorcy, selektywne
-relayowanie, wsparcie dla wirtualnych domen, wbudowany system filtrów,
-mo¿liwo¶æ odrzucania praw roota kiedy jest to mo¿liwe.
+relayowanie, wsparcie dla wirtualnych domen, wbudowany system filtrÃ³w,
+moÅ¼liwoÅ›Ä‡ odrzucania praw roota kiedy jest to moÅ¼liwe.
 
 %package X11
 Summary:	X11 based Exim administration tool
-Summary(pl):	Narzêdzia administracyjne exima dla X11
-Summary(pt_BR):	Monitor X11 para o exim
+Summary(pl.UTF-8):   NarzÄ™dzia administracyjne exima dla X11
+Summary(pt_BR.UTF-8):   Monitor X11 para o exim
 Group:		X11/Applications
 
 %description X11
 X11 based monitor & administration utility for the Exim Mail Transfer
 Agent.
 
-%description X11 -l pl
-Bazuj±ce na X11 narzêdzia dla Exima - monitor i program
+%description X11 -l pl.UTF-8
+BazujÄ…ce na X11 narzÄ™dzia dla Exima - monitor i program
 administracyjny.
 
 %prep
