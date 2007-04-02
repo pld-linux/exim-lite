@@ -255,7 +255,7 @@ fi
 %attr(755,root,root) /usr/lib/sendmail
 %attr(754,root,root) /etc/cron.weekly/exim.cron.db
 %attr(750,exim,root) %dir %{_var}/log/exim
-%attr(750,exim,root) %dir %{_var}/log/archiv/exim
+%attr(750,exim,root) %dir %{_var}/log/archive/exim
 %attr(640,exim,root) %ghost %{_var}/log/exim/*
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/smtp
 %{_infodir}/*.info*
