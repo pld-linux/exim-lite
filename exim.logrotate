@@ -1,5 +1,5 @@
 /var/log/exim/main.log {
-    olddir /var/log/archiv/exim
+    olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
 	/bin/killall -HUP exim
@@ -7,21 +7,21 @@
 }
 
 /var/log/exim/reject.log {
-    olddir /var/log/archiv/exim
+    olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
 	/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/panic.log {
-    olddir /var/log/archiv/exim
+    olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
 	/bin/killall -HUP exim
     endscript
 }
 /var/log/exim/process.log {
-    olddir /var/log/archiv/exim
+    olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
 	/bin/killall -HUP exim
