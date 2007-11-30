@@ -74,18 +74,25 @@ case "$1" in
 	status exim
 	exit $?
 	;;
+  configtest)
+	exim -bV || exit $?
+	;;
+
   reload|force-reload)
 	if [ -f /var/lock/subsys/exim ]; then
-		msg_reloading Exim
-		killproc exim -HUP
-		RETVAL=$?
+		run_cmd "Checking exim configuration" exim -bV
+		if [ $? -eq 0 ]; then
+			msg_reloading Exim
+			killproc exim -HUP
+			RETVAL=$?
+		fi
 	else
 		msg_not_running Exim
 		exit 7
 	fi
 	;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	msg_usage "$0 {start|stop|restart|reload|force-reload|configtest|status}"
 	exit 3
 esac
 
