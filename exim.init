@@ -60,7 +60,7 @@ case "$1" in
 	if [ -f /var/lock/subsys/exim ]; then
 		msg_stopping Exim
 		killproc --pidfile /var/spool/exim/exim-daemon.pid exim
-		rm -f /var/lock/subsys/exim >/dev/null 2>&1
+		rm -f /var/lock/subsys/exim /var/spool/exim/exim-daemon.pid >/dev/null 2>&1
 	else
 		msg_not_running Exim
 	fi
