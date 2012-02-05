@@ -1,4 +1,5 @@
 /var/log/exim/main.log {
+    su exim root
     olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
@@ -7,6 +8,7 @@
 }
 
 /var/log/exim/reject.log {
+    su exim root
     olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
@@ -14,6 +16,7 @@
     endscript
 }
 /var/log/exim/panic.log {
+    su exim root
     olddir /var/log/archive/exim
     create 640 exim exim
     postrotate
@@ -21,6 +24,7 @@
     endscript
 }
 /var/log/exim/process.log {
+    su exim root
     olddir /var/log/archive/exim
     create 640 exim exim
     postrotate

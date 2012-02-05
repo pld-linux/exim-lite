@@ -3,7 +3,7 @@ Summary:	Lite version of exim Mail Transfer Agent
 Summary(pl.UTF-8):	Lekka wersja Agenta Transferu Poczty
 Name:		exim-lite
 Version:	4.51
-Release:	2
+Release:	3
 Epoch:		2
 License:	GPL
 Group:		Networking/Daemons
@@ -60,6 +60,7 @@ Provides:	exim
 Provides:	group(exim)
 Provides:	smtpdaemon
 Provides:	user(exim)
+Conflicts:	logrotate < 3.8.0
 Obsoletes:	courier
 Obsoletes:	exim
 Obsoletes:	masqmail
